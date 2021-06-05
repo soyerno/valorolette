@@ -1,38 +1,105 @@
-.App {
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.opacity05 {
+  transition: opacity 2.5s ease-in-out;
+  opacity: 0.5;
+}
+
+.cardList {
+  height: 150px;
+  width: 1200px;
+  position: relative;
+  margin: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.card {
+  transition: opacity 1s ease-in-out;
+  display: inline-block;
   text-align: center;
+  height: 150px;
+  width: 150px;
+  line-height: 100px;
+  font-family: monospace;
+  font-size: 2em;
+  color: #fff;
+  margin: 0 auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card img {
+  width: 100%;
+  height: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#container {
+  text-align: center;
+  background: #022b9b;
+  padding: 40px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.roulette-container {
+  margin-top: 150px;
 }
 
-.App-link {
-  color: #61dafb;
+.roulette-title {
+  margin-bottom: 40px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cardList::before,
+.cardList::after {
+  content: "";
+  display: block;
+  z-index: 100;
+  width: 0px;
+  height: 0px;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
+
+.cardList::before {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  border-top: 25px solid rgb(248, 9, 9);
+}
+
+.cardList::after {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  border-bottom: 25px solid rgb(248, 9, 9);
+}
+
+.cardList {
+  margin: 0 auto;
+  border: 5px solid rgb(248, 9, 9);
+}
+
+div.controls,
+button {
+  margin: 10px;
+  padding: 8px;
+  font-family: monospace;
+}
+
+div.controls input {
+  width: 48px;
+  padding: 2px;
+  text-align: center;
+  font-family: monospace;
+}
+
+.controls {
+  background: #dfdfdf;
+}
+
+.cooldown {
+  margin-top: 3rem;
+  padding: 1rem 3rem;
 }
