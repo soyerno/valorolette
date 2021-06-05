@@ -1,6 +1,25 @@
 import "./App.css";
 import { Roulette } from "./components/roulette";
-
+const config2 ={
+  title: "Mapas",
+  cards: [
+    {
+      imgUrl: "/maps/BREEZE.jpg",
+    },
+    {
+      imgUrl: "/maps/BREEZE.jpg",
+    },
+    {
+      imgUrl: "/maps/BREEZE.jpg",
+    },
+    {
+      imgUrl: "/maps/BREEZE.jpg",
+    },
+    {
+      imgUrl: "/maps/BREEZE.jpg",
+    },
+  ],
+};
 const config = {
   title: "Personajes",
   cards: [
@@ -56,10 +75,7 @@ function App() {
   return (
     <div className="App">
       <Roulette config={config} />
-      {/* <Roulette config={config} />
-      <Roulette config={config} />
-      <Roulette config={config} />
-      <Roulette config={config} /> */}
+      <Roulette config={config2} />
     </div>
   );
 }
