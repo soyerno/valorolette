@@ -5,13 +5,13 @@ import { Player } from "./player";
 export function Roulette({
   cards,
   title,
-  timeLapse = 2.5,
+  timeLapse = 4,
   width = 150,
   randomize = true,
-  cardCloneSetAmount = 3,
+  cardCloneSetAmount = 5,
 }) {
   const cardListRef = useRef();
-  const distance = 100 * width;
+  const distance = 1000 * width;
 
   const [firstCardStyles, setFirstCardStyles] = useState({
     marginLeft: 0,
@@ -19,6 +19,7 @@ export function Roulette({
   });
 
   const [winnerName, setWinnerName] = useState(null);
+  const [currentPos, setCurrentPos] = useState(0);
   const [isSpinning, setIsSpinning] = useState(false);
 
   function spinReset() {
@@ -26,7 +27,8 @@ export function Roulette({
   }
 
   function spin() {
-    var newMargin = 0,
+    setWinnerName(null)
+    var newMargin = currentPos,
       newDistance = distance;
     // const winner = Math.random() * config.cards.length + cardCloneSetAmount;
     const winner = Math.random() * cards.length * cardCloneSetAmount;
@@ -42,7 +44,10 @@ export function Roulette({
     const cardWinner = cards[Math.floor(winner) % cards.length];
     const cardWinnerName =
       cardWinner && cardWinner.imgUrl.split("/").pop().split(".")[0];
-    setWinnerName(cardWinnerName);
+    setTimeout(() => {
+      setCurrentPos(newMargin);
+      setWinnerName(cardWinnerName);
+    }, timeLapse * 1000);
     setFirstCardStyles({ ...firstCardStyles, marginLeft: newMargin });
   }
 
@@ -82,7 +87,8 @@ export function Roulette({
           {/* <button id="reset" className="cooldown" onClick={spinReset}>
             Reset
           </button> */}
-          <Player play={isSpinning} url={"/slotSound.wav"} />
+          <Player play={isSpinning} url={"/slotSound1.wav"} />
+          <Player play={winnerName} url={"/win.wav"} />
         </div>
         <span id="timer"></span>
       </div>
