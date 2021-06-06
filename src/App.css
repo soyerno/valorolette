@@ -20,7 +20,7 @@
 
 .cardList {
   height: 200px;
-  width: 1200px;
+  width: 900px;
   position: relative;
   overflow: hidden;
   white-space: nowrap;
@@ -34,7 +34,7 @@
 
 #container {
   text-align: center;
-  background: #333;
+  background: rgba(255, 0, 0, 0.3);
   padding: 40px;
 }
 

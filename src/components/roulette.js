@@ -32,12 +32,13 @@ export function Roulette({
   function spin() {
     setWinnerName(null);
     let newMargin = currentPos;
-    let newDistance = distance * cardCloneSetAmount;
+    let newDistance = distance * cardCloneSetAmount * 5;
     const winner = Math.random() * cards.length * cardCloneSetAmount;
 
     newDistance = Math.floor(winner);
     newDistance *= size;
     newDistance -= size * 3.5;
+    newDistance += size;
 
     newMargin = -newDistance;
     const cardWinner = cards[Math.floor(winner) % cards.length];
@@ -62,7 +63,7 @@ export function Roulette({
   return (
     <>
       <div id="container" className="roulette-container">
-        <h2 className="roulette-title">{title}</h2>
+        <h1 className="roulette-title font-valo">{title}</h1>
         <div className="cardList" ref={cardListRef}>
           {new Array(cards.length * cardCloneSetAmount)
             .fill(cards)
