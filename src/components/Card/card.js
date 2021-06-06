@@ -1,16 +1,6 @@
-import { useState, useEffect } from "react";
 import "./styles.scss";
 export default function Card({ config, style, winnerName, isSpinning, scale }) {
   const currentName = config.imgUrl.split("/").pop().split(".")[0];
-  // const [currentClass, setCurrentClass] = useState("");
-
-  // useEffect(() => {
-  //   isSpinning
-  //     ? setCurrentClass("card opacity05")
-  //     : winnerName !== null && winnerName !== currentName
-  //     ? setCurrentClass("card opacity05")
-  //     : setCurrentClass("card");
-  // }, [winnerName, isSpinning, currentName]);
 
   const file = config.imgUrl.split("/");
 

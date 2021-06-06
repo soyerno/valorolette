@@ -1,0 +1,51 @@
+{
+  "scale": true,
+  "title": "Personajes",
+  "cards": [
+    {
+      "imgUrl": "/full-characters/phoenix.png"
+    },
+    {
+      "imgUrl": "/full-characters/jett.png"
+    },
+    {
+      "imgUrl": "/full-characters/killjoy.png"
+    },
+    {
+      "imgUrl": "/full-characters/omen.png"
+    },
+    {
+      "imgUrl": "/full-characters/brimstone.png"
+    },
+    {
+      "imgUrl": "/full-characters/raze.png"
+    },
+    {
+      "imgUrl": "/full-characters/sage.png"
+    },
+    {
+      "imgUrl": "/full-characters/yoru.png"
+    },
+    {
+      "imgUrl": "/full-characters/breach.png"
+    },
+    {
+      "imgUrl": "/full-characters/astra.png"
+    },
+    {
+      "imgUrl": "/full-characters/viper.png"
+    },
+    {
+      "imgUrl": "/full-characters/sova.png"
+    },
+    {
+      "imgUrl": "/full-characters/skye.png"
+    },
+    {
+      "imgUrl": "/full-characters/cypher.png"
+    },
+    {
+      "imgUrl": "/full-characters/reyna.png"
+    }
+  ]
+}

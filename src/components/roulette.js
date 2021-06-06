@@ -7,16 +7,18 @@ export function Roulette({
   cards,
   title,
   timeLapse = 4,
-  width = 150,
-  randomize = true,
+  size = 150,
+  orientation = "h",
   cardCloneSetAmount = 3,
 }) {
   const cardListRef = useRef();
-  const distance = 1000 * width;
+  const distance = 0;
 
   const [firstCardStyles, setFirstCardStyles] = useState({
     marginLeft: 0,
-    transition: `margin-left ${timeLapse}s ease-in-out`,
+    transition: `margin-${
+      orientation === "h" ? "left" : "top"
+    } ${timeLapse}s ease-in-out`,
   });
 
   const [winnerName, setWinnerName] = useState(null);
@@ -29,18 +31,14 @@ export function Roulette({
 
   function spin() {
     setWinnerName(null);
-    var newMargin = currentPos,
-      newDistance = distance;
-    // const winner = Math.random() * config.cards.length + cardCloneSetAmount;
+    let newMargin = currentPos;
+    let newDistance = distance * cardCloneSetAmount;
     const winner = Math.random() * cards.length * cardCloneSetAmount;
 
-    if (randomize) {
-      newDistance = Math.floor(winner);
-      newDistance *= width;
-      newDistance += width / 2;
-      newDistance -= width;
-      newDistance -= 450;
-    }
+    newDistance = Math.floor(winner);
+    newDistance *= size;
+    newDistance -= size * 3.5;
+
     newMargin = -newDistance;
     const cardWinner = cards[Math.floor(winner) % cards.length];
     const cardWinnerName =
@@ -76,15 +74,15 @@ export function Roulette({
                   isSpinning={isSpinning}
                   winnerName={winnerName}
                   style={k === 0 ? firstCardStyles : {}}
-                  key={k}
+                  key={`${c.imgUrl }_ ${k}`}
                   config={c}
                 />
               );
             })}
         </div>
         <div className="bts">
-          <button id="spin" className="cooldown" onClick={runSpin}>
-            Jugar
+          <button id="spin" className="cooldown font-valo" onClick={runSpin}>
+            Girar
           </button>
           {/* <button id="reset" className="cooldown" onClick={spinReset}>
             Reset

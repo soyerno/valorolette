@@ -4,6 +4,15 @@
   margin: 0;
 }
 
+@font-face {
+  font-family: "valo";
+  src: url("./fonts/valo.ttf") format("truetype");
+}
+
+.font-valo{
+  font-family: myFont;
+}
+
 .opacity05 {
   transition: opacity 2.5s ease-in-out;
   opacity: 0.5;
