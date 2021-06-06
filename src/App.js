@@ -1,6 +1,7 @@
 import "./App.css";
 import { Roulette } from "./components/roulette";
 const config2 = {
+  scale: true,
   title: "Personajes",
   cards: [
     {
@@ -51,6 +52,7 @@ const config2 = {
   ],
 };
 const config = {
+  scale: true,
   title: "Personajes",
   cards: [
     {
@@ -101,11 +103,34 @@ const config = {
   ],
 };
 
+const mapas = {
+  scale: false,
+  title: "Mapas",
+  cards: [
+    {
+      imgUrl: "/maps/BREEZE.jpg",
+    },
+    {
+      imgUrl: "/maps/BREEZE.jpg",
+    },
+    {
+      imgUrl: "/maps/BREEZE.jpg",
+    },
+    {
+      imgUrl: "/maps/BREEZE.jpg",
+    },
+    {
+      imgUrl: "/maps/BREEZE.jpg",
+    },
+  ],
+};
+
 function App() {
   return (
     <div className="App">
       {/* <Roulette {...config} /> */}
       <Roulette {...config2} />
+      <Roulette {...mapas} />
     </div>
   );
 }

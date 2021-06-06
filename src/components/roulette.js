@@ -3,12 +3,13 @@ import { useRef, useState } from "react";
 import { Player } from "./player";
 
 export function Roulette({
+  scale = false,
   cards,
   title,
   timeLapse = 4,
   width = 150,
   randomize = true,
-  cardCloneSetAmount = 5,
+  cardCloneSetAmount = 3,
 }) {
   const cardListRef = useRef();
   const distance = 1000 * width;
@@ -27,7 +28,7 @@ export function Roulette({
   }
 
   function spin() {
-    setWinnerName(null)
+    setWinnerName(null);
     var newMargin = currentPos,
       newDistance = distance;
     // const winner = Math.random() * config.cards.length + cardCloneSetAmount;
@@ -71,6 +72,7 @@ export function Roulette({
             .map((c, k) => {
               return (
                 <Card
+                  scale={scale}
                   isSpinning={isSpinning}
                   winnerName={winnerName}
                   style={k === 0 ? firstCardStyles : {}}

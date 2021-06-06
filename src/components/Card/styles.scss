@@ -32,17 +32,22 @@
     -webkit-box-shadow: inset 0px 50px 50px 5px rgba(255, 255, 255, 0.31);
     box-shadow: inset 0px 50px 50px 5px rgba(255, 255, 255, 0.31);
 
-    transition: border-color 400ms ease-in-out, transform 400ms ease-in-out, object-position 400ms ease-in-out;
+    transition: border-color 400ms ease-in-out, transform 400ms ease-in-out,
+      object-position 400ms ease-in-out;
 
     &.winner {
       border-color: red;
       &::after {
-        -webkit-box-shadow: inset 0px -50px 50px -23px rgba(255,0,0,0.31); 
-        box-shadow: inset 0px -50px 50px -23px rgba(255,0,0,0.31);      }
+        -webkit-box-shadow: inset 0px -50px 50px -23px rgba(255, 0, 0, 0.31);
+        box-shadow: inset 0px -50px 50px -23px rgba(255, 0, 0, 0.31);
+      }
       .card-image {
         transform-origin: bottom center;
-        transform: scale(1.2);
-        object-position: 0px 15px;
+        &.scale {
+          transition: transform 1s ease-in-out;
+          transform: scale(1.2);
+          object-position: 0px 15px;
+        }
       }
     }
     &.spinning {
@@ -53,9 +58,12 @@
         box-shadow: inset 0px -50px 26px 5px rgba(255, 0, 0, 0);
       }
       .card-image {
+        transition: transform 500ms ease-in;
         transform-origin: bottom center;
-        transform: scale(1);
-        object-position: 0px 0px;
+        &.scale {
+          transform: scale(1);
+          object-position: 0px 0px;
+        }
       }
     }
 
