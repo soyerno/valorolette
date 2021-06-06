@@ -1,0 +1,92 @@
+@font-face {
+  font-family: "myFont";
+  src: url("./valo.ttf") format("truetype");
+}
+
+.card {
+  transition: opacity 1s ease-in-out;
+  display: inline-block;
+  text-align: center;
+  height: 180px;
+  width: 150px;
+  margin: 0;
+  margin-top: 12px;
+  line-height: 100px;
+  font-family: monospace;
+  font-size: 2em;
+  color: #fff;
+  padding: 5px;
+  box-sizing: border-box;
+
+  font-family: myFont;
+
+  .card-image-container {
+    height: 100%;
+    position: relative;
+    background-size: cover;
+    border: 4px solid;
+
+    border-color: #333;
+
+    background-color: #333;
+    -webkit-box-shadow: inset 0px 50px 50px 5px rgba(255, 255, 255, 0.31);
+    box-shadow: inset 0px 50px 50px 5px rgba(255, 255, 255, 0.31);
+
+    transition: border-color 400ms ease-in-out, transform 400ms ease-in-out, object-position 400ms ease-in-out;
+
+    &.winner {
+      border-color: red;
+      &::after {
+        -webkit-box-shadow: inset 0px -50px 50px -23px rgba(255,0,0,0.31); 
+        box-shadow: inset 0px -50px 50px -23px rgba(255,0,0,0.31);      }
+      .card-image {
+        transform-origin: bottom center;
+        transform: scale(1.2);
+        object-position: 0px 15px;
+      }
+    }
+    &.spinning {
+      border-color: #333;
+
+      &::after {
+        -webkit-box-shadow: inset 0px -50px 26px 5px rgba(255, 0, 0, 0);
+        box-shadow: inset 0px -50px 26px 5px rgba(255, 0, 0, 0);
+      }
+      .card-image {
+        transform-origin: bottom center;
+        transform: scale(1);
+        object-position: 0px 0px;
+      }
+    }
+
+    &::after {
+      content: "";
+      transition: box-shadow 400ms ease-in-out;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-box-shadow: inset 0px -50px 26px 5px rgba(65, 65, 65, 0.836);
+      box-shadow: inset 0px -50px 26px 5px rgba(65, 65, 65, 0.836);
+    }
+
+    .card-image {
+      height: 100%;
+      object-fit: cover;
+      object-position: 0px 0px;
+      z-index: 3;
+    }
+
+    p {
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      z-index: 5;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      font-size: 19px;
+    }
+  }
+}

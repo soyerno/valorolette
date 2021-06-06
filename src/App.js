@@ -1,22 +1,52 @@
 import "./App.css";
 import { Roulette } from "./components/roulette";
-const config2 ={
-  title: "Mapas",
+const config2 = {
+  title: "Personajes",
   cards: [
     {
-      imgUrl: "/maps/BREEZE.jpg",
+      imgUrl: "/full-characters/phoenix.png",
     },
     {
-      imgUrl: "/maps/BREEZE.jpg",
+      imgUrl: "/full-characters/jett.png",
     },
     {
-      imgUrl: "/maps/BREEZE.jpg",
+      imgUrl: "/full-characters/killjoy.png",
     },
     {
-      imgUrl: "/maps/BREEZE.jpg",
+      imgUrl: "/full-characters/omen.png",
     },
     {
-      imgUrl: "/maps/BREEZE.jpg",
+      imgUrl: "/full-characters/brimstone.png",
+    },
+    {
+      imgUrl: "/full-characters/raze.png",
+    },
+    {
+      imgUrl: "/full-characters/sage.png",
+    },
+    {
+      imgUrl: "/full-characters/yoru.png",
+    },
+    {
+      imgUrl: "/full-characters/breach.png",
+    },
+    {
+      imgUrl: "/full-characters/astra.png",
+    },
+    {
+      imgUrl: "/full-characters/viper.png",
+    },
+    {
+      imgUrl: "/full-characters/sova.png",
+    },
+    {
+      imgUrl: "/full-characters/skye.png",
+    },
+    {
+      imgUrl: "/full-characters/cypher.png",
+    },
+    {
+      imgUrl: "/full-characters/reyna.png",
     },
   ],
 };
@@ -74,8 +104,8 @@ const config = {
 function App() {
   return (
     <div className="App">
-      <Roulette config={config} />
-      <Roulette config={config2} />
+      {/* <Roulette {...config} /> */}
+      <Roulette {...config2} />
     </div>
   );
 }

@@ -10,35 +10,22 @@
 }
 
 .cardList {
-  height: 150px;
+  height: 200px;
   width: 1200px;
   position: relative;
-  margin: 10px;
   overflow: hidden;
   white-space: nowrap;
 }
 
-.card {
-  transition: opacity 1s ease-in-out;
-  display: inline-block;
-  text-align: center;
-  height: 150px;
-  width: 150px;
-  line-height: 100px;
-  font-family: monospace;
-  font-size: 2em;
-  color: #fff;
-  margin: 0 auto;
-}
-
 .card img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
 }
 
 #container {
   text-align: center;
-  background: #022b9b;
+  background: #333;
   padding: 40px;
 }
 
@@ -62,13 +49,6 @@
   border-right: 8px solid transparent;
 }
 
-.cardList::before {
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  border-top: 25px solid rgb(248, 9, 9);
-}
-
 .cardList::after {
   position: absolute;
   bottom: 0px;
@@ -78,7 +58,8 @@
 
 .cardList {
   margin: 0 auto;
-  border: 5px solid rgb(248, 9, 9);
+  padding: 0;
+  /* border: 5px solid rgb(248, 9, 9); */
 }
 
 div.controls,

@@ -1,14 +1,17 @@
-import { Card } from "./card";
+import Card from "./Card";
 import { useRef, useState } from "react";
-import { Player } from "../components/player";
+import { Player } from "./player";
 
-export function Roulette({ config }) {
+export function Roulette({
+  cards,
+  title,
+  timeLapse = 2.5,
+  width = 150,
+  randomize = true,
+  cardCloneSetAmount = 3,
+}) {
   const cardListRef = useRef();
-  const timeLapse = 2.5;
-  const width = 150;
-  const randomize = true;
   const distance = 100 * width;
-  const cardCloneSetAmount = 5;
 
   const [firstCardStyles, setFirstCardStyles] = useState({
     marginLeft: 0,
@@ -17,7 +20,7 @@ export function Roulette({ config }) {
 
   const [winnerName, setWinnerName] = useState(null);
   const [isSpinning, setIsSpinning] = useState(false);
-  
+
   function spinReset() {
     setFirstCardStyles({ ...firstCardStyles, marginLeft: 0 });
   }
@@ -26,7 +29,7 @@ export function Roulette({ config }) {
     var newMargin = 0,
       newDistance = distance;
     // const winner = Math.random() * config.cards.length + cardCloneSetAmount;
-    const winner = Math.random() * config.cards.length * cardCloneSetAmount;
+    const winner = Math.random() * cards.length * cardCloneSetAmount;
 
     if (randomize) {
       newDistance = Math.floor(winner);
@@ -36,8 +39,9 @@ export function Roulette({ config }) {
       newDistance -= 450;
     }
     newMargin = -newDistance;
-    const cardWinner = config.cards[Math.floor(winner) % config.cards.length];
-    const cardWinnerName = cardWinner && cardWinner.imgUrl.split("/").pop().split(".")[0];
+    const cardWinner = cards[Math.floor(winner) % cards.length];
+    const cardWinnerName =
+      cardWinner && cardWinner.imgUrl.split("/").pop().split(".")[0];
     setWinnerName(cardWinnerName);
     setFirstCardStyles({ ...firstCardStyles, marginLeft: newMargin });
   }
@@ -54,10 +58,10 @@ export function Roulette({ config }) {
   return (
     <>
       <div id="container" className="roulette-container">
-        <h2 className="roulette-title">{config.title}</h2>
+        <h2 className="roulette-title">{title}</h2>
         <div className="cardList" ref={cardListRef}>
-          {new Array(config.cards.length * cardCloneSetAmount)
-            .fill(config.cards)
+          {new Array(cards.length * cardCloneSetAmount)
+            .fill(cards)
             .flat()
             .map((c, k) => {
               return (
@@ -68,7 +72,6 @@ export function Roulette({ config }) {
                   key={k}
                   config={c}
                 />
-                //   <Card style={{marginLeft: '200px'}} key={k} config={c} />
               );
             })}
         </div>
