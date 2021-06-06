@@ -1,10 +1,11 @@
 .config-panel-container {
   position: fixed;
-  top: 3rem;
+  top: 1rem;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 20;
 
   .config-panel {
     background-color: #333;
