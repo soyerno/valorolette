@@ -1,7 +1,13 @@
 import { useState } from "react";
 import "./styles.scss";
+import { ConfigEntry } from "../../types";
 
-export default function ConfigPanel({ configs, onSelect }) {
+interface ConfigPanelProps {
+  configs: ConfigEntry[];
+  onSelect: (config: ConfigEntry) => void;
+}
+
+export default function ConfigPanel({ configs, onSelect }: ConfigPanelProps) {
   const [selected, setSelected] = useState(1);
 
   return (
@@ -12,8 +18,9 @@ export default function ConfigPanel({ configs, onSelect }) {
           className="select"
           value={selected}
           onChange={(e) => {
-            setSelected(e.target.value)
-            onSelect(configs[e.target.value]);
+            const index = Number(e.target.value);
+            setSelected(index);
+            onSelect(configs[index]);
           }}
         >
           {configs.map((c, k) => {

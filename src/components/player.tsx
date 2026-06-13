@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-const useAudio = (url) => {
+const useAudio = (url: string): [boolean, () => void] => {
   const [audio] = useState(new Audio(url));
   const [playing, setPlaying] = useState(false);
 
@@ -20,11 +20,17 @@ const useAudio = (url) => {
   return [playing, toggle];
 };
 
-export const Player = ({ url, play }) => {
-  const [ playing, toggle ] = useAudio(url);
+interface PlayerProps {
+  url: string;
+  play: boolean | string | null;
+}
+
+export const Player = ({ url, play }: PlayerProps) => {
+  const [, toggle] = useAudio(url);
 
   useEffect(() => {
     play && toggle();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [play]);
 
   return (
