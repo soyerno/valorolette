@@ -1,3 +1,7 @@
+<p align="center">
+  <img src=".github/banner.svg" alt="valorolette" width="100%">
+</p>
+
 # Valorolette 🎯
 
 Una **ruleta estilo tragamonedas para Valorant**: gira y te asigna al azar un **agente** o un **mapa**. Pensada para noches de juego y *desafíos* entre amigos — dejá que la suerte decida con quién y dónde jugás.
