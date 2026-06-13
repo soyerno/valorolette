@@ -1,6 +1,17 @@
+import { CSSProperties } from "react";
 import "./styles.scss";
-export default function Card({ config, style, winnerName, isSpinning, scale }) {
-  const currentName = config.imgUrl.split("/").pop().split(".")[0];
+import { CardConfig } from "../../types";
+
+interface CardProps {
+  config: CardConfig;
+  style?: CSSProperties;
+  winnerName: string | null;
+  isSpinning: boolean;
+  scale?: boolean;
+}
+
+export default function Card({ config, style, winnerName, isSpinning, scale }: CardProps) {
+  const currentName = config.imgUrl.split("/").pop()!.split(".")[0];
 
   const file = config.imgUrl.split("/");
 

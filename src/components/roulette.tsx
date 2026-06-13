@@ -1,6 +1,7 @@
+import { CSSProperties, useRef, useState } from "react";
 import Card from "./Card";
-import { useRef, useState } from "react";
 import { Player } from "./player";
+import { CardConfig, RouletteConfig } from "../types";
 
 export function Roulette({
   scale = false,
@@ -10,18 +11,18 @@ export function Roulette({
   size = 150,
   orientation = "h",
   cardCloneSetAmount = 3,
-}) {
-  const cardListRef = useRef();
+}: RouletteConfig) {
+  const cardListRef = useRef<HTMLDivElement>(null);
   const distance = 0;
 
-  const [firstCardStyles, setFirstCardStyles] = useState({
+  const [firstCardStyles, setFirstCardStyles] = useState<CSSProperties>({
     marginLeft: 0,
     transition: `margin-${
       orientation === "h" ? "left" : "top"
     } ${timeLapse}s ease-in-out`,
   });
 
-  const [winnerName, setWinnerName] = useState(null);
+  const [winnerName, setWinnerName] = useState<string | null>(null);
   const [currentPos, setCurrentPos] = useState(0);
   const [isSpinning, setIsSpinning] = useState(false);
 
@@ -43,7 +44,7 @@ export function Roulette({
     newMargin = -newDistance;
     const cardWinner = cards[Math.floor(winner) % cards.length];
     const cardWinnerName =
-      cardWinner && cardWinner.imgUrl.split("/").pop().split(".")[0];
+      cardWinner && cardWinner.imgUrl.split("/").pop()!.split(".")[0];
     setTimeout(() => {
       setCurrentPos(newMargin);
       setWinnerName(cardWinnerName);
@@ -68,7 +69,7 @@ export function Roulette({
           {new Array(cards.length * cardCloneSetAmount)
             .fill(cards)
             .flat()
-            .map((c, k) => {
+            .map((c: CardConfig, k: number) => {
               return (
                 <Card
                   scale={scale}
